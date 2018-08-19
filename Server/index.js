@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 app.get('/api/foodList',fT.getAllFoods);
 // app.get('/api/foodList/?={name}',fT.getOneFood);
 app.post('/api/foodList', fT.createFood);
-// app.put('/api/foodList/:id', fT.editFood);
+app.patch(`/api/foodList/:id`, fT.editFood);
 // app.delete('/api/foodList/:id', fT.delete);
 
 const port=4000

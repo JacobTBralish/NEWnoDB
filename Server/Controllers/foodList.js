@@ -176,4 +176,26 @@ let foodList = [
             foodList.push(newFood)
             res.status(200).send(foodList)
         },
+
+        //Double check the edit function
+        editFood: (req, res) => {
+            let { foodName, calories, protein, carbohydrates, fats} = req.body;
+            let { id } = req.params;
+            let updatedFood = {
+                foodName,
+                calories,
+                protein,
+                carbohydrates,
+                fats,
+                id
+            }
+            let index = foodList.findIndex(food => food.id == id);
+    
+            if ( index !== -1){
+                foodList[index] = updatedFood
+                res.status(200).send(foodList)
+            }
+        },
+
+        
     }
